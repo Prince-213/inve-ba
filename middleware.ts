@@ -11,6 +11,15 @@ export default auth((req) => {
     pathname.startsWith("/sign-in") || pathname.startsWith("/sign-up");
   const isPublicPage = pathname === "/" || isAuthPage;
 
+  // Auth.js sometimes lands on the default sign-in route with ?error=MissingCSRF
+  // after a failed logout on a bad host — send users to our custom page instead.
+  if (pathname === "/api/auth/signin") {
+    const url = new URL("/sign-in", req.url);
+    const error = req.nextUrl.searchParams.get("error");
+    if (error) url.searchParams.set("error", error);
+    return NextResponse.redirect(url);
+  }
+
   if (isAuthPage && isLoggedIn) {
     return NextResponse.redirect(new URL("/app", req.url));
   }

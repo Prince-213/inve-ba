@@ -40,7 +40,12 @@ export function SiteHeader() {
             type="button"
             variant="outline"
             size="sm"
-            onClick={() => signOut({ callbackUrl: "/" })}
+            onClick={() =>
+              signOut({
+                redirect: true,
+                redirectTo: "/",
+              })
+            }
           >
             <LogOutIcon data-icon="inline-start" />
             Logout

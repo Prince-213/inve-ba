@@ -4,7 +4,7 @@ Flexible inventory **data banks** with CSV/Excel import and **OCR-powered produc
 
 Snap or upload a product label, confirm the ID in search, and pull the matching row — built for fast floor and desk lookups.
 
-**Live:** [https://www.inve-ba.vercel.app](https://www.inve-ba.vercel.app)
+**Live:** [https://inve-ba.vercel.app](https://inve-ba.vercel.app)
 
 ---
 
@@ -63,7 +63,7 @@ cp .env.example .env.local
 | `DATABASE_URL` | Yes | Postgres connection string (prefer direct URL for local Prisma) |
 | `DATABASE_URL_POOLED` | Optional | Pooled URL if you use Neon’s pooler in some environments |
 | `AUTH_SECRET` | Yes | Auth.js secret — `openssl rand -base64 32` |
-| `AUTH_URL` | Prod | App origin, e.g. `https://www.inve-ba.vercel.app` |
+| `AUTH_URL` | Prod | App origin, e.g. `https://inve-ba.vercel.app` (no `www`) |
 | `NEXTAUTH_URL` | Prod / local | Same as app URL (`http://localhost:3000` locally) |
 | `NEXT_PUBLIC_APP_URL` | Recommended | Canonical URL for metadata / Open Graph |
 
